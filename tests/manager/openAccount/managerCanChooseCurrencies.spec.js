@@ -8,8 +8,12 @@ test('Assert manager can choose currencies for account', async ({ page }) => {
 
   await openAccountPage.open();
   await openAccountPage.selectDollarCurrency();
+  await expect(openAccountPage.currencyField).toHaveValue('Dollar')
   await openAccountPage.selectPoundCurrency();
+  await expect(openAccountPage.currencyField).toHaveValue('Pound')
   await openAccountPage.selectRupeeCurrency();
+  await expect(openAccountPage.currencyField).toHaveValue('Rupee')
+
 
   /* 
   Test:

@@ -6,7 +6,7 @@ export class AddCustomerPage {
     this.firstName = page.getByPlaceholder('First Name');
     this.lastName = page.getByPlaceholder('Last Name');
     this.postCode = page.getByPlaceholder('Post Code');
-    this.addCustomerButton = this.page.locator('form').getByRole('button', { name: 'Add Customer' })
+    this.addCustomerButton = this.page.getByRole('button', { name: 'Add Customer' })
     }
 
     async open() {
@@ -27,5 +27,5 @@ export class AddCustomerPage {
 
     async clickAddCustomerButton() {
         await this.addCustomerButton.click();
-    }
-  }
+    
+  }}
