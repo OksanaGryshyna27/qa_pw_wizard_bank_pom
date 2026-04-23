@@ -4,6 +4,8 @@ import { AddCustomerPage } from '../../../src/pages/manager/AddCustomerPage';
 import { BankManagerMainPage } from '../../../src/pages/manager/BankManagerMainPage';
 import { OpenAccountPage } from '../../../src/pages/manager/OpenAccountPage';
 import { CustomersListPage } from '../../../src/pages/manager/CustomersListPage';
+import { BankHomePage } from '../../../src/pages/BankHomePage';
+import { expect } from '@playwright/test';
 
 let firstName;
 let lastName;
@@ -41,8 +43,12 @@ test('Assert manager can add new customer', async ({ page }) => {
   const bankManagerMainPage = new BankManagerMainPage(page);
   const openAccountPage = new OpenAccountPage(page);
   const customersListPage = new CustomersListPage(page);
+  const bankHomePage = new BankHomePage(page);
 
+  await bankHomePage.open();
+  await bankHomePage.clickBankManagerLoginButton();
   await bankManagerMainPage.clickOpenAccountButton();
+  await expect(openAccountPage.customerName).toContainText(`${firstName} ${lastName}`);
   await openAccountPage.selectCustomerName(firstName, lastName);
   await openAccountPage.selectDollarCurrency();
   await openAccountPage.clickProcessButton();

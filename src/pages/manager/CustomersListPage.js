@@ -24,7 +24,7 @@ export class CustomersListPage {
     await this.customersButton.click();
   }
 
-  async verifyCustomerFirstNameInFirstRowTable(text) {
+  async verifyCustomerFirstNameInLastRowTable(text) {
     await expect(this.firstNameInTheLastRow).toContainText(text);
   }
 
@@ -37,10 +37,10 @@ export class CustomersListPage {
   }
 
   async verifyCustomerAccountNumberInTheLastRowTable() {
-    await expect(this.accountNumberInTheLastRow).toContainText('');
+    await expect(this.accountNumberInTheLastRow).toBeEmpty();
   }
 
-  async clickDeleteLastRoeButton() {
+  async clickDeleteLastRowButton() {
     await this.deleteCustomerButton.click();
   }
 
@@ -61,7 +61,7 @@ export class CustomersListPage {
   }
 
   async verifyCustomerRowIsPresent(value) {
-    await this.rows.filter({hasText: value});
+    await expect(this.rows.filter({hasText: value})).toHaveCount(1);
   }
 
   async onlyOneRowIsPresent() {

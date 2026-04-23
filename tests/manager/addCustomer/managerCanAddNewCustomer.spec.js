@@ -21,12 +21,12 @@ test('Assert manager can add new customer', async ({ page }) => {
   await page.reload();
 
  await customersListPage.clickCustomersButton();
- await customersListPage.verifyCustomerFirstNameInFirstRowTable(firstName);
+ await customersListPage.verifyCustomerFirstNameInLastRowTable(firstName);
  await customersListPage.verifyCustomerLastNameInTheLastRowTable(lastName);
  await customersListPage.verifyCustomerPostCodeInTheLastRowTable(postCode);
  await customersListPage.verifyCustomerAccountNumberInTheLastRowTable();
 
-
+});
 
   /* 
   Test:
@@ -52,4 +52,4 @@ test('Assert manager can add new customer', async ({ page }) => {
   2. Do not rely on the customer row id for the steps 8-11. 
     Use the ".last()" locator to get the last row.
   */
-});
+

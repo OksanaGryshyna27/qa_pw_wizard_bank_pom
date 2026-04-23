@@ -24,11 +24,11 @@ export class BankManagerMainPage {
 
   async verifyOpenAccountButtonIsVisible() {
     await expect(this.openAccountButton).toBeVisible();
-    } 
+  } 
 
   async verifyCustomersButtonIsVisible() {
-      await expect(this.customersButton).toBeVisible();
-      } 
+    await expect(this.customersButton).toBeVisible();
+  } 
 
   async clickOpenAccountButton() {
     await this.openAccountButton.click();

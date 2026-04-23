@@ -1,4 +1,4 @@
-import { expect } from '@playwright/test';
+
 
 export class OpenAccountPage {
   constructor(page) {
@@ -27,7 +27,7 @@ export class OpenAccountPage {
   }
 
   async selectCustomerName(firstName, lastName) {
-    await this.customerName.selectOption(`${firstName} ${lastName}`);
+    await this.customerName.selectOption({label:`${firstName} ${lastName}`});
   }
 
   async clickProcessButton() {

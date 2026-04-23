@@ -1,4 +1,4 @@
-import { expect } from '@playwright/test';
+
 
 export class AddCustomerPage {
   constructor(page) {
@@ -6,11 +6,11 @@ export class AddCustomerPage {
     this.firstName = page.getByPlaceholder('First Name');
     this.lastName = page.getByPlaceholder('Last Name');
     this.postCode = page.getByPlaceholder('Post Code');
-    this.addCustomerButton = page.getByRole('form').getByRole('button', { name: 'Add Customer' })
+    this.addCustomerButton = this.page.locator('form').getByRole('button', { name: 'Add Customer' })
     }
 
     async open() {
-     await this.page.goto('https://www.globalsqa.com/angularJs-protractor/BankingProject/#/manager/addCust');
+     await this.page.goto('/angularJs-protractor/BankingProject/#/manager/addCust');
     }
 
     async fillFirstName(text) {
@@ -28,4 +28,4 @@ export class AddCustomerPage {
     async clickAddCustomerButton() {
         await this.addCustomerButton.click();
     }
-    }
+  }
